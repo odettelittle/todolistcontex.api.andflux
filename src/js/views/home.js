@@ -27,7 +27,7 @@ export const Home = () => {
 						value={task}
 						onKeyUp={(event) => {
 							if (task !== "" && event.key == "Enter") {
-								store.addItem(task);
+								actions.addItem(task);
 								setTask("");
 							}
 						}}
@@ -35,7 +35,7 @@ export const Home = () => {
 					<button
 						onClick={() => {
 							if (task !== "") {
-								store.addItem(task);
+								actions.addItem(task);
 								setTask("");
 							}
 						}}>
@@ -43,8 +43,8 @@ export const Home = () => {
 					</button>
 				</div>
 				<ul>
-					{list &&
-						list.map((listItem, index) => {
+					{store.list &&
+						store.list.map((listItem, index) => {
 							return (
 								<li
 									key={index}
@@ -53,8 +53,8 @@ export const Home = () => {
 									<button
 										className="btn btn-primary btn-sm ms-2"
 										onClick={() => {
-											store.deleteItem(
-												list.filter(
+											actions.deleteItem(
+												store.list.filter(
 													(item, i) => i !== index
 												)
 											);
