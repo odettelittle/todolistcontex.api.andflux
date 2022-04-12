@@ -44,7 +44,7 @@ export const Home = () => {
 				</div>
 				<ul>
 					{store.list &&
-						store.list.map((listItem, index) => {
+						store.list.slice(1).map((listItem, index) => {
 							return (
 								<li
 									key={index}
